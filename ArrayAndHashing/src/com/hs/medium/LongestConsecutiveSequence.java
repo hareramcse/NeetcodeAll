@@ -9,11 +9,11 @@ public class LongestConsecutiveSequence {
 			return 0;
 		
 		Set<Integer> set = new HashSet<>();
-		int ans = 1;
 		for (int num : nums) {
 			set.add(num);
 		}
 		
+		int ans = 1;
 		for (int num : nums) {
 			if (!set.contains(num - 1)) {
 				int count = 1;

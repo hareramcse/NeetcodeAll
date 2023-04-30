@@ -1,4 +1,4 @@
-package com.hs.onefifty.medium;
+package com.hs.all.medium;
 
 import java.util.ArrayList;
 import java.util.List;

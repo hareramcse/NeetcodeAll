@@ -1,4 +1,4 @@
-package com.hs.onefifty.medium;
+package com.hs.all.medium;
 
 public class WordSearch {
 	public boolean exist(char[][] board, String word) {

@@ -37,6 +37,6 @@ public class EncodeAndDecodeString {
 		String encodedString = obj.encode(list);
 		System.out.println("Encoded String: " + encodedString);
 		List<String> decodeString = obj.decode(encodedString);
-		System.out.println("Decoded String" + decodeString);
+		System.out.println("Decoded String: " + decodeString);
 	}
 }

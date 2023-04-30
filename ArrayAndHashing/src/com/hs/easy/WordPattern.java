@@ -11,18 +11,20 @@ public class WordPattern {
 		if (arr.length != pattern.length())
 			return false;
 
-		Map<Character, String> map = new HashMap<Character, String>();
+		Map<Character, String> map = new HashMap<>();
 		for (int i = 0; i < pattern.length(); i++) {
-			char c = pattern.charAt(i);
-			if (map.containsKey(c)) {
-				String value = map.get(c);
-				if (!value.equals(arr[i])) {
+			Character sChar = pattern.charAt(i);
+			String tString = arr[i];
+
+			if (map.containsKey(sChar)) {
+				String value = map.get(sChar);
+				if (!value.equals(tString))
 					return false;
-				}
-			} else if (map.containsValue(arr[i])) {
+			} else if (map.containsValue(tString)) {
 				return false;
+			} else {
+				map.put(sChar, tString);
 			}
-			map.put(c, arr[i]);
 		}
 		return true;
 	}

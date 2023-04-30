@@ -18,19 +18,18 @@ public class InsertDeleteGetRandom {
 	// Delete by swapping with the end, maintain indexing
 	// Get random by getting a random index wrt list's size
 	public boolean insert(int val) {
-		if (this.indexing.containsKey(val)) {
+		if (indexing.containsKey(val)) 
 			return false;
-		}
-		int indexInsert = numbers.size();
+		
+		int index = numbers.size();
 		numbers.add(val);
-		indexing.put(val, indexInsert);
+		indexing.put(val, index);
 		return true;
 	}
 
 	public boolean remove(int val) {
-		if (!indexing.containsKey(val)) {
+		if (!indexing.containsKey(val)) 
 			return false;
-		}
 
 		int lastIndex = numbers.size() - 1;
 		int lastElement = numbers.get(lastIndex);
