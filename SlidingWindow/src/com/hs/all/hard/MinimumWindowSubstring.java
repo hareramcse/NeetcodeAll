@@ -1,4 +1,4 @@
-package com.hs.onefifty.hard;
+package com.hs.all.hard;
 
 import java.util.HashMap;
 import java.util.Map;
