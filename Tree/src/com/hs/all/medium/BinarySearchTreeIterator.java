@@ -5,11 +5,11 @@ import java.util.Queue;
 
 public class BinarySearchTreeIterator {
 	Node iterator;
-	Queue<Integer> traversal;
+	Queue<Integer> queue;
 
 	public BinarySearchTreeIterator(Node root) {
 		iterator = root;
-		traversal = new ArrayDeque<>();
+		queue = new ArrayDeque<>();
 		fillStack(iterator);
 	}
 
@@ -17,20 +17,20 @@ public class BinarySearchTreeIterator {
 		if (iterator.left != null) {
 			fillStack(iterator.left);
 		}
-		traversal.add(iterator.data);
+		queue.add(iterator.data);
 		if (iterator.right != null) {
 			fillStack(iterator.right);
 		}
 	}
 
 	public int next() {
-		while (!traversal.isEmpty()) {
-			return traversal.poll();
+		while (!queue.isEmpty()) {
+			return queue.poll();
 		}
 		return -1;
 	}
 
 	public boolean hasNext() {
-		return !traversal.isEmpty();
+		return !queue.isEmpty();
 	}
 }

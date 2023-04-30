@@ -11,8 +11,9 @@ public class CountGoodNodesInBinaryTree {
 
 		int res = root.data >= max ? 1 : 0;
 
-		res += helper(root.left, Math.max(root.data, max));
-		res += helper(root.right, Math.max(root.data, max));
+		max = Math.max(root.data, max);
+		res += helper(root.left, max);
+		res += helper(root.right, max);
 
 		return res;
 	}

@@ -31,13 +31,13 @@ public class SerializeAndDeserialize {
 	}
 
 	private Node deserializeDFS(String[] tokens) {
-		String token = tokens[this.i];
+		String token = tokens[i];
 		if (token.equals("N")) {
-			this.i++;
+			i++;
 			return null;
 		}
 		var node = new Node(Integer.parseInt(token));
-		this.i++;
+		i++;
 		node.left = deserializeDFS(tokens);
 		node.right = deserializeDFS(tokens);
 		return node;
