@@ -1,29 +1,28 @@
 package com.hs.easy;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class WordPattern {
 	public boolean wordPattern(String pattern, String s) {
-		String[] sArray = s.split("\s");
-		if (sArray.length != pattern.length()) {
+		String[] arr = s.split(" ");
+
+		// prevent out of boundary problem
+		if (arr.length != pattern.length())
 			return false;
-		}
 
-		HashMap<Character, String> charToWord = new HashMap<>();
-		HashMap<String, Character> wordToChar = new HashMap<>();
-
+		Map<Character, String> map = new HashMap<Character, String>();
 		for (int i = 0; i < pattern.length(); i++) {
-
-			if (charToWord.containsKey(pattern.charAt(i)) && !charToWord.get(pattern.charAt(i)).equals(sArray[i])) {
+			char c = pattern.charAt(i);
+			if (map.containsKey(c)) {
+				String value = map.get(c);
+				if (!value.equals(arr[i])) {
+					return false;
+				}
+			} else if (map.containsValue(arr[i])) {
 				return false;
 			}
-
-			if (wordToChar.containsKey(sArray[i]) && !wordToChar.get(sArray[i]).equals(pattern.charAt(i))) {
-				return false;
-			}
-
-			charToWord.put(pattern.charAt(i), sArray[i]);
-			wordToChar.put(sArray[i], pattern.charAt(i));
+			map.put(c, arr[i]);
 		}
 		return true;
 	}

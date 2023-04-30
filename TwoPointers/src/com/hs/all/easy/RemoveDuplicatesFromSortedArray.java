@@ -2,14 +2,14 @@ package com.hs.all.easy;
 
 public class RemoveDuplicatesFromSortedArray {
 	public int removeDuplicates(int[] nums) {
-		int i = 0;
+		int i = 1;
 		for (int j = 1; j < nums.length; j++) {
-			if (nums[i] != nums[j]) {
-				i++;
+			if (nums[j] != nums[j - 1]) {
 				nums[i] = nums[j];
+				i++;
 			}
 		}
-		return i + 1;
+		return i;
 	}
 
 	public static void main(String[] args) {

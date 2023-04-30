@@ -4,6 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UniqueEmailAddresses {
+	public int numUniqueEmails(String[] emails) {
+		Set<String> uniqueEmails = new HashSet<>();
+		for (String email : emails) {
+			String formattedEmail = getFormattedEmail(email);
+			uniqueEmails.add(formattedEmail);
+		}
+		return uniqueEmails.size();
+	}
+
 	private String getFormattedEmail(String email) {
 		String[] arr = email.split("@");
 		String localName = arr[0];
@@ -17,14 +26,5 @@ public class UniqueEmailAddresses {
 		localName = localName.replace(".", "");
 
 		return localName + "@" + domainName;
-	}
-
-	public int numUniqueEmails(String[] emails) {
-		Set<String> uniqueEmails = new HashSet<>();
-		for (String email : emails) {
-			String formattedEmail = getFormattedEmail(email);
-			uniqueEmails.add(formattedEmail);
-		}
-		return uniqueEmails.size();
 	}
 }

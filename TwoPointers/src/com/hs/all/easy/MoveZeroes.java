@@ -2,14 +2,15 @@ package com.hs.all.easy;
 
 public class MoveZeroes {
 	public void moveZeroes(int[] nums) {
-		int index = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] != 0)
-				nums[index++] = nums[i];
-		}
-
-		for (int i = index; i < nums.length; i++) {
-			nums[i] = 0;
+		// Do not return anything, modify nums in-place instead.
+		int l = 0;
+		for (int r = 0; r < nums.length; r++) {
+			if (nums[r] != 0) {
+				int tmp = nums[l];
+				nums[l] = nums[r];
+				nums[r] = tmp;
+				l += 1;
+			}
 		}
 	}
 }

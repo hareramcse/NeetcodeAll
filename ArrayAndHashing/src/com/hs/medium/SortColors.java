@@ -20,4 +20,10 @@ public class SortColors {
 		nums[i] = nums[j];
 		nums[j] = temp;
 	}
+
+	public static void main(String[] args) {
+		SortColors obj = new SortColors();
+		int[] arr = { 2, 0, 2, 1, 1, 0 };
+		obj.sortColors(arr);
+	}
 }

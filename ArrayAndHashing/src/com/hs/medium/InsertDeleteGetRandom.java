@@ -10,47 +10,46 @@ public class InsertDeleteGetRandom {
 	private List<Integer> numbers;
 
 	public InsertDeleteGetRandom() {
-        this.indexing = new HashMap<>();
-        this.numbers = new ArrayList<>();
-    }
+		this.indexing = new HashMap<>();
+		this.numbers = new ArrayList<>();
+	}
 
 	// Append to the end, maintain indexing
 	// Delete by swapping with the end, maintain indexing
 	// Get random by getting a random index wrt list's size
-
 	public boolean insert(int val) {
 		if (this.indexing.containsKey(val)) {
 			return false;
 		}
-		int indexInsert = this.numbers.size();
-		this.numbers.add(val);
-		this.indexing.put(val, indexInsert);
+		int indexInsert = numbers.size();
+		numbers.add(val);
+		indexing.put(val, indexInsert);
 		return true;
 	}
 
 	public boolean remove(int val) {
-		if (!this.indexing.containsKey(val)) {
+		if (!indexing.containsKey(val)) {
 			return false;
 		}
 
-		int lastIndex = this.numbers.size() - 1;
-		int lastElement = this.numbers.get(lastIndex);
-		int indexElement = this.indexing.get(val);
+		int lastIndex = numbers.size() - 1;
+		int lastElement = numbers.get(lastIndex);
+		int indexElement = indexing.get(val);
 
 		// Swap with last element
-		this.numbers.set(indexElement, lastElement);
+		numbers.set(indexElement, lastElement);
 
 		// Update indices [Add & Delete]
-		this.indexing.put(lastElement, indexElement);
-		this.indexing.remove(val);
+		indexing.put(lastElement, indexElement);
+		indexing.remove(val);
 
 		// Remove from list
-		this.numbers.remove(lastIndex);
+		numbers.remove(lastIndex);
 		return true;
 	}
 
 	public int getRandom() {
-		int randomIndex = (int) (Math.random() * this.numbers.size());
-		return this.numbers.get(randomIndex);
+		int randomIndex = (int) (Math.random() * numbers.size());
+		return numbers.get(randomIndex);
 	}
 }

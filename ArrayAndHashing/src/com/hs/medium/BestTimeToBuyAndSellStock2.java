@@ -2,18 +2,13 @@ package com.hs.medium;
 
 public class BestTimeToBuyAndSellStock2 {
 	public int maxProfit(int[] prices) {
-        int oldStockPrice = prices[0];
-        int profit = 0;
-        for(int i = 1; i<prices.length; i++){
-            if(prices[i]<oldStockPrice){
-                oldStockPrice = prices[i];
-            }else{
-                profit+=prices[i]-oldStockPrice;
-                oldStockPrice = prices[i];
-            }
-        }
-        return profit;
-    }
+		int profit = 0;
+		for (int i = 1; i < prices.length; i++) {
+			if (prices[i] > prices[i - 1])
+				profit += prices[i] - prices[i - 1];
+		}
+		return profit;
+	}
 
 	public static void main(String[] args) {
 		BestTimeToBuyAndSellStock2 obj = new BestTimeToBuyAndSellStock2();

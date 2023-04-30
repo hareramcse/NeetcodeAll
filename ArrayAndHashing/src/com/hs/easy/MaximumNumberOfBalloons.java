@@ -1,30 +1,19 @@
 package com.hs.easy;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class MaximumNumberOfBalloons {
 	public int maxNumberOfBalloons(String text) {
-		HashMap<Character, Integer> balloon = new HashMap<>();
-		HashMap<Character, Integer> countText = new HashMap<>();
+		Map<Character, Integer> balloon = new HashMap<>();
+		Map<Character, Integer> countText = new HashMap<>();
 
-		char[] balloonArray = "balloon".toCharArray();
-
-		for (char c : balloonArray) {
-			if (balloon.containsKey(c)) {
-				balloon.put(c, balloon.get(c) + 1);
-			} else {
-				balloon.put(c, 1);
-			}
+		for (char c : "balloon".toCharArray()) {
+			balloon.put(c, balloon.getOrDefault(c, 0) + 1);
 		}
 
-		char[] countTextArray = text.toCharArray();
-
-		for (char c : countTextArray) {
-			if (countText.containsKey(c)) {
-				countText.put(c, countText.get(c) + 1);
-			} else {
-				countText.put(c, 1);
-			}
+		for (char c : text.toCharArray()) {
+			countText.put(c, balloon.getOrDefault(c, 0) + 1);
 		}
 
 		int res = text.length();

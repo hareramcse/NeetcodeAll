@@ -7,7 +7,7 @@ public class IsSubsequence {
 
 		int i = 0;
 		for (int j = 0; j < t.length(); j++) {
-			if (t.charAt(j) != s.charAt(i)) {
+			if (s.charAt(i) != t.charAt(j)) {
 				continue;
 			} else {
 				i++;
