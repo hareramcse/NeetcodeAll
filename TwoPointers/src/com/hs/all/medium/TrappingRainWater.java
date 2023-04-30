@@ -7,13 +7,13 @@ public class TrappingRainWater {
 		int left[] = new int[heights.length], right[] = new int[heights.length], max = heights[0], res = 0;
 
 		for (int i = 0; i < heights.length; i++) {
-			left[i] = Math.max(heights[i], max);
+			left[i] = Math.max(max, heights[i]);
 			max = left[i];
 		}
 
 		max = heights[heights.length - 1];
 		for (int i = heights.length - 1; i >= 0; i--) {
-			right[i] = Math.max(heights[i], max);
+			right[i] = Math.max(max, heights[i]);
 			max = right[i];
 		}
 

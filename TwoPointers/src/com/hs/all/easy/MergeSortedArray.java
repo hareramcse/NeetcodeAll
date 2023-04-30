@@ -3,16 +3,16 @@ package com.hs.all.easy;
 public class MergeSortedArray {
 	public void merge(int[] nums1, int m, int[] nums2, int n) {
 		// Three pointer technique
-		int r1 = m - 1;
-		int r2 = n - 1;
+		int i = m - 1;
+		int j = n - 1;
 
-		for (int w = m + n - 1; w >= 0; w--) {
-			if (r1 >= 0 && r2 >= 0) {
-				nums1[w] = nums1[r1] > nums2[r2] ? nums1[r1--] : nums2[r2--];
-			} else if (r1 >= 0) {
-				nums1[w] = nums1[r1--];
+		for (int k = m + n - 1; k >= 0; k--) {
+			if (i >= 0 && j >= 0) {
+				nums1[k] = nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+			} else if (i >= 0) {
+				nums1[k] = nums1[i--];
 			} else {
-				nums1[w] = nums2[r2--];
+				nums1[k] = nums2[j--];
 			}
 		}
 	}

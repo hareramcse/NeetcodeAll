@@ -18,31 +18,31 @@ public class FourSum {
 			int target_3 = target - nums[i];
 			for (int j = i + 1; j < n; j++) {
 				int target_2 = target_3 - nums[j];
-				int front = j + 1;
-				int back = n - 1;
-				while (front < back) {
-					int two_sum = nums[front] + nums[back];
+				int left = j + 1;
+				int right = n - 1;
+				while (left < right) {
+					int two_sum = nums[left] + nums[right];
 					if (two_sum < target_2)
-						front++;
+						left++;
 
 					else if (two_sum > target_2)
-						back--;
+						right--;
 
 					else {
 						List<Integer> quad = new ArrayList<>();
 						quad.add(nums[i]);
 						quad.add(nums[j]);
-						quad.add(nums[front]);
-						quad.add(nums[back]);
+						quad.add(nums[left]);
+						quad.add(nums[right]);
 						res.add(quad);
 
 						// Processing the duplicates of number 3
-						while (front < back && nums[front] == quad.get(2))
-							++front;
+						while (left < right && nums[left] == quad.get(2))
+							++left;
 
 						// Processing the duplicates of number 4
-						while (front < back && nums[back] == quad.get(3))
-							--back;
+						while (left < right && nums[right] == quad.get(3))
+							--right;
 					}
 				}
 

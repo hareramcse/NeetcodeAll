@@ -8,13 +8,26 @@ public class MinimumDifferenceBetweenHighestAndLowestOfKScores {
 			return 0;
 
 		Arrays.sort(nums);
-
 		int min = Integer.MAX_VALUE;
-		for (int i = 0; i < nums.length - k + 1; i++) {
-			int diff = Math.abs(nums[i] - nums[i + k - 1]);
-			min = Math.min(diff, min);
-		}
 
+		int i = 0;
+		int j = 0;
+		while (j < nums.length) {
+			if (j - i + 1 == k) {
+				int diff = Math.abs(nums[i] - nums[j]);
+				min = Math.min(diff, min);
+				i++;
+			}
+			j++;
+		}
 		return min;
+	}
+
+	public static void main(String[] args) {
+		MinimumDifferenceBetweenHighestAndLowestOfKScores obj = new MinimumDifferenceBetweenHighestAndLowestOfKScores();
+		int[] arr = { 9, 4, 1, 7 };
+		int k = 2;
+		int res = obj.minimumDifference(arr, k);
+		System.out.println(res);
 	}
 }

@@ -8,14 +8,13 @@ public class SlidingWindowMaximum {
 	public int[] maxSlidingWindow(int[] nums, int k) {
 		int n = nums.length;
 		int[] result = new int[n - k + 1];
-		
+
 		// by default Deque stores data in decreasing order
 		Deque<Integer> queue = new LinkedList<>();
 
 		int i = 0;
-		int j = 0;
 		int m = 0;
-		while (j < n) {
+		for (int j = 0; j < nums.length; j++) {
 			// remove smaller elements as they are useless
 			while (!queue.isEmpty() && queue.peekLast() < nums[j]) {
 				queue.removeLast();
@@ -29,7 +28,6 @@ public class SlidingWindowMaximum {
 				}
 				i++;
 			}
-			j++;
 		}
 		return result;
 	}

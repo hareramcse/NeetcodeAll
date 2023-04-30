@@ -3,13 +3,13 @@ package com.hs.all.easy;
 public class MoveZeroes {
 	public void moveZeroes(int[] nums) {
 		// Do not return anything, modify nums in-place instead.
-		int l = 0;
-		for (int r = 0; r < nums.length; r++) {
-			if (nums[r] != 0) {
-				int tmp = nums[l];
-				nums[l] = nums[r];
-				nums[r] = tmp;
-				l += 1;
+		int i = 0;
+		for (int j = 0; j < nums.length; j++) {
+			if (nums[j] != 0) {
+				int tmp = nums[i];
+				nums[i] = nums[j];
+				nums[j] = tmp;
+				i++;
 			}
 		}
 	}
