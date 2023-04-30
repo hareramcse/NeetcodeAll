@@ -6,15 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public class WordSearch2 {
-	public class TrieNode {
-		public boolean isWord = false;
-		public TrieNode[] child = new TrieNode[26];
-
-		public TrieNode() {
-
-		}
-	}
-
 	TrieNode root = new TrieNode();
 	boolean[][] flag;
 

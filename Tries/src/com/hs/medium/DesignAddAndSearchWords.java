@@ -1,7 +1,6 @@
 package com.hs.medium;
 
 public class DesignAddAndSearchWords {
-
 	TrieNode root;
 
 	public DesignAddAndSearchWords() {
@@ -21,26 +20,29 @@ public class DesignAddAndSearchWords {
 
 	public boolean search(String word) {
 		TrieNode temp = root;
-		return search(word, 0, temp);
+		return searchHelper(word, 0, temp);
 	}
 
-	public boolean search(String word, int index, TrieNode temp) {
-		if (temp == null)
-			return false;
-		if (index == word.length())
-			return temp.isWord;
+	private boolean searchHelper(String word, int index, TrieNode curr) {
+		for (int i = index; i < word.length(); i++) {
+			char ch = word.charAt(i);
 
-		char ch = word.charAt(index);
-		if (ch == '.') {
-			for (int k = 0; k < 26; k++) {
-				if (search(word, index + 1, temp.child[k]))
-					return true;
+			if (ch == '.') {
+				for (TrieNode temp : curr.child) {
+					if (temp != null && searchHelper(word, i + 1, temp)) {
+						return true;
+					}
+				}
+				return false;
 			}
-		} else {
-			if (search(word, index + 1, temp.child[ch - 'a']))
-				return true;
+
+			if (curr.child[ch - 'a'] == null) {
+				return false;
+			}
+
+			curr = curr.child[ch - 'a'];
 		}
-		return false;
+		return curr.isWord;
 	}
 
 	public static void main(String[] args) {
