@@ -2,26 +2,21 @@ package com.hs.all.medium;
 
 public class FindTheDuplicateNumber {
 	public int findDuplicate(int[] nums) {
-		int fast = nums[0];
 		int slow = nums[0];
-		boolean first = true;
-		while (first || fast != slow) {
-			if (first)
-				first = false;
+		int fast = nums[0];
+
+		do {
 			slow = nums[slow];
 			fast = nums[nums[fast]];
-			if (fast == slow)
-				break;
-		}
-		int slow2 = nums[0];
-		while (slow2 != slow) {
-			if (first)
-				first = false;
-			slow2 = nums[slow2];
+		} while (slow != fast);
+
+		slow = nums[0];
+
+		while (slow != fast) {
 			slow = nums[slow];
-			if (slow2 == slow)
-				return slow;
+			fast = nums[fast];
 		}
-		return slow;
+
+		return fast;
 	}
 }
