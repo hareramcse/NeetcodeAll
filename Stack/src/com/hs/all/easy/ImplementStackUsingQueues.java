@@ -1,38 +1,44 @@
 package com.hs.all.easy;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class ImplementStackUsingQueues {
-	Deque<Integer> q;
-
-	public ImplementStackUsingQueues() {
-		this.q = new ArrayDeque<>();
-	}
+	Queue<Integer> queue = new LinkedList<>();
 
 	public void push(int x) {
-		q.addLast(x);
+		queue.add(x);
+		for (int i = 0; i < queue.size() - 1; i++) {
+			queue.add(queue.remove());
+		}
 	}
 
 	public int pop() {
-		int size = q.size();
-		for (int i = 0; i < size - 1; i++)
-			push(q.pollFirst());
-		
-		return q.pollFirst();
+		return queue.remove();
 	}
 
 	public int top() {
-		int size = q.size();
-		for (int i = 0; i < size - 1; i++)
-			push(q.pollFirst());
-
-		int res = q.peekFirst();
-		push(q.pollFirst());
-		return res;
+		return queue.peek();
 	}
 
 	public boolean empty() {
-		return q.size() == 0;
+		return queue.isEmpty();
+	}
+
+	public int size() {
+		return queue.size();
+	}
+
+	public static void main(String[] args) {
+		ImplementStackUsingQueues s = new ImplementStackUsingQueues();
+		s.push(3);
+		s.push(2);
+		s.push(4);
+		s.push(1);
+		System.out.println("Top of the stack: " + s.top());
+		System.out.println("Size of the stack before removing element: " + s.size());
+		System.out.println("The deleted element is: " + s.pop());
+		System.out.println("Top of the stack after removing element: " + s.top());
+		System.out.println("Size of the stack after removing element: " + s.size());
 	}
 }
