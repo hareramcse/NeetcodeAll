@@ -1,4 +1,4 @@
-package com.hs.medium.seelater;
+package seelater;
 
 public class LongestTurbulentArray {
 

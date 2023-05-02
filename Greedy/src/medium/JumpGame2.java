@@ -1,4 +1,4 @@
-package com.hs.all.medium;
+package medium;
 
 public class JumpGame2 {
 	public int jump(int[] nums) {

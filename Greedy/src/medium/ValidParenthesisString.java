@@ -1,4 +1,4 @@
-package com.hs.all.medium;
+package medium;
 
 import java.util.Stack;
 

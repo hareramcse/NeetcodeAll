@@ -1,4 +1,4 @@
-package com.hs.all.medium;
+package medium;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
