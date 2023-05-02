@@ -1,20 +1,19 @@
 package com.hs.all.easy;
 
 public class GuessNumberHigherOrLower {
-	public int guessNumber(int n) {
-		// return a num between 1,...,n
+	/*public int guessNumber(int n) {
 		int low = 1;
 		int high = n;
-
-		while (true) {
+		while (low <= high) {
 			int mid = low + (high - low) / 2;
-			int myGuess = guessNumber(mid);
-			if (myGuess == 1)
-				low = mid + 1;
-			else if (myGuess == -1)
-				high = mid - 1;
-			else
+			if (guess(mid) == 0) {
 				return mid;
+			} else if (guess(mid) == -1) {
+				high = mid - 1;
+			} else {
+				low = mid + 1;
+			}
 		}
-	}
+		return -1;
+	} */
 }

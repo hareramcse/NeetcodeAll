@@ -7,7 +7,7 @@ public class MajorityElement {
 			if (count == 0)
 				res = n;
 			
-			count += (n == res ? 1 : -1);
+			count += (res == n ? 1 : -1);
 		}
 
 		return res;

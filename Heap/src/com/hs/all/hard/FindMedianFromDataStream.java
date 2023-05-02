@@ -4,31 +4,31 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class FindMedianFromDataStream {
-	private Queue<Integer> smallHeap; // small elements - maxHeap
-	private Queue<Integer> largeHeap; // large elements - minHeap
+	private Queue<Integer> minHeap; // large elements - minHeap
+	private Queue<Integer> maxHeap; // small elements - maxHeap
 
 	public FindMedianFromDataStream() {
-		smallHeap = new PriorityQueue<>((a, b) -> b - a);
-		largeHeap = new PriorityQueue<>((a, b) -> a - b);
+		minHeap = new PriorityQueue<>((a, b) -> a - b);
+		maxHeap = new PriorityQueue<>((a, b) -> b - a);
 	}
 
 	public void addNum(int num) {
-		smallHeap.add(num);
-		if (smallHeap.size() - largeHeap.size() > 1 || !largeHeap.isEmpty() && smallHeap.peek() > largeHeap.peek()) {
-			largeHeap.add(smallHeap.poll());
+		maxHeap.add(num);
+		if (maxHeap.size() - minHeap.size() > 1 || !minHeap.isEmpty() && maxHeap.peek() > minHeap.peek()) {
+			minHeap.add(maxHeap.poll());
 		}
-		if (largeHeap.size() - smallHeap.size() > 1) {
-			smallHeap.add(largeHeap.poll());
+		if (minHeap.size() - maxHeap.size() > 1) {
+			maxHeap.add(minHeap.poll());
 		}
 	}
 
 	public double findMedian() {
-		if (smallHeap.size() == largeHeap.size()) {
-			return (double) (largeHeap.peek() + smallHeap.peek()) / 2;
-		} else if (smallHeap.size() > largeHeap.size()) {
-			return (double) smallHeap.peek();
+		if (maxHeap.size() == minHeap.size()) {
+			return (double) (minHeap.peek() + maxHeap.peek()) / 2;
+		} else if (maxHeap.size() > minHeap.size()) {
+			return (double) maxHeap.peek();
 		} else {
-			return (double) largeHeap.peek();
+			return (double) minHeap.peek();
 		}
 	}
 }

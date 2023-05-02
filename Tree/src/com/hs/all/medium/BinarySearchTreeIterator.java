@@ -4,22 +4,22 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class BinarySearchTreeIterator {
-	Node iterator;
+	Node node;
 	Queue<Integer> queue;
 
 	public BinarySearchTreeIterator(Node root) {
-		iterator = root;
+		node = root;
 		queue = new ArrayDeque<>();
-		fillStack(iterator);
+		fillStack(node);
 	}
 
-	public void fillStack(Node iterator) {
-		if (iterator.left != null) {
-			fillStack(iterator.left);
+	public void fillStack(Node node) {
+		if (node.left != null) {
+			fillStack(node.left);
 		}
-		queue.add(iterator.data);
-		if (iterator.right != null) {
-			fillStack(iterator.right);
+		queue.add(node.data);
+		if (node.right != null) {
+			fillStack(node.right);
 		}
 	}
 
