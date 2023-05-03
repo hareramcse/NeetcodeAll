@@ -9,11 +9,11 @@ public class Permutation {
 		List<Integer> list = new ArrayList<>();
 		boolean[] visited = new boolean[nums.length];
 
-		permutationUtil(nums, visited, ans, list);
+		backtrack(nums, visited, ans, list);
 		return ans;
 	}
 
-	private void permutationUtil(int[] nums, boolean[] visited, List<List<Integer>> ans, List<Integer> list) {
+	private void backtrack(int[] nums, boolean[] visited, List<List<Integer>> ans, List<Integer> list) {
 		if (list.size() == nums.length) {
 			ans.add(new ArrayList<>(list));
 			return;
@@ -23,7 +23,7 @@ public class Permutation {
 			if (!visited[i]) {
 				list.add(nums[i]);
 				visited[i] = true;
-				permutationUtil(nums, visited, ans, list);
+				backtrack(nums, visited, ans, list);
 				list.remove(list.size() - 1);
 				visited[i] = false;
 			}
