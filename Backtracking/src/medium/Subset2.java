@@ -1,4 +1,4 @@
-package com.hs.all.medium;
+package medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +17,7 @@ public class Subset2 {
 		for (int k = i; k < nums.length; k++) {
 			if (k != i && nums[k] == nums[k - 1])
 				continue;
+			
 			list.add(nums[k]);
 			backTrack(k + 1, nums, ans, list);
 			list.remove(list.size() - 1);

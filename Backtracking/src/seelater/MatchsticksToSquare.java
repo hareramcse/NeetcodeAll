@@ -1,4 +1,4 @@
-package com.hs.all.medium;
+package seelater;
 
 public class MatchsticksToSquare {
 

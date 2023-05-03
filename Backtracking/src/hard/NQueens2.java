@@ -1,4 +1,4 @@
-package com.hs.all.hard;
+package hard;
 
 public class NQueens2 {
 
