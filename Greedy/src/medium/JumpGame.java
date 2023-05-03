@@ -2,13 +2,12 @@ package medium;
 
 public class JumpGame {
 	public static boolean canJump(int[] nums) {
-		int maxReach = 0;
-		for (int i = 0; i <= maxReach; i++) {
-			maxReach = Math.max(maxReach, i + nums[i]);
-			if (maxReach >= nums.length - 1)
-				return true;
+		int goal = nums.length - 1;
+		for (int i = nums.length - 2; i >= 0; i--) {
+			if (nums[i] + i >= goal)
+				goal = i;
 		}
-		return false;
+		return goal == 0;
 	}
 
 	public static void main(String[] args) {

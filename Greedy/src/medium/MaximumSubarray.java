@@ -2,16 +2,17 @@ package medium;
 
 public class MaximumSubarray {
 	public int maxSubArray(int[] nums) {
-		int ans = Integer.MIN_VALUE;
+		int max = nums[0];
 		int sum = 0;
-		for (int i = 0; i < nums.length; i++) {
-			sum += nums[i];
-			if (sum < nums[i]) {
-				sum = nums[i];
-			}
-			ans = Math.max(ans, sum);
+
+		for (int num : nums) {
+			if (sum < 0)
+				sum = 0;
+
+			sum += num;
+			max = Math.max(max, sum);
 		}
-		return ans;
+		return max;
 	}
 
 	public static void main(String[] args) {
