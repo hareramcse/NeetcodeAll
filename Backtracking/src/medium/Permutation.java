@@ -28,7 +28,6 @@ public class Permutation {
 				visited[i] = false;
 			}
 		}
-
 	}
 
 	public static void main(String[] args) {

@@ -28,7 +28,7 @@ public class Subsets {
 		int[] arr = { 3, 2, 1 };
 		List<List<Integer>> result = obj.subsets(arr);
 		for (List<Integer> list : result) {
-			System.out.println(list);
+			System.out.print(list);
 		}
 	}
 }

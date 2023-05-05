@@ -1,5 +1,6 @@
 package com.hs.all.easy;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,5 +14,16 @@ public class MeetingRooms {
 			}
 		}
 		return true;
+	}
+
+	public static void main(String[] args) {
+		List<Interval> list = new ArrayList<>();
+		list.add(new Interval(0, 30));
+		list.add(new Interval(5, 10));
+		list.add(new Interval(15, 20));
+
+		MeetingRooms obj = new MeetingRooms();
+		boolean res = obj.canAttendMeetings(list);
+		System.out.println(res);
 	}
 }
