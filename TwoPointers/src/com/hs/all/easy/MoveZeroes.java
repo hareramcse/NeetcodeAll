@@ -1,8 +1,9 @@
 package com.hs.all.easy;
 
+import java.util.Arrays;
+
 public class MoveZeroes {
 	public void moveZeroes(int[] nums) {
-		// Do not return anything, modify nums in-place instead.
 		int i = 0;
 		for (int j = 0; j < nums.length; j++) {
 			if (nums[j] != 0) {
@@ -12,5 +13,12 @@ public class MoveZeroes {
 				i++;
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		int[] nums = { 0, 1, 0, 3, 12 };
+		MoveZeroes obj = new MoveZeroes();
+		obj.moveZeroes(nums);
+		System.out.println(Arrays.toString(nums));
 	}
 }

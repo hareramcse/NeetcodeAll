@@ -11,26 +11,27 @@ public class ThreeSum {
 		Arrays.sort(nums);
 
 		for (int i = 0; i < nums.length - 2; i++) {
-			// this condition is to skip the duplicate number
-			if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
-				int low = i + 1, high = nums.length - 1, sum = 0 - nums[i];
-				while (low < high) {
-					if (nums[low] + nums[high] == sum) {
-						ans.add(Arrays.asList(nums[i], nums[low], nums[high]));
+			// this condition is to skip the starting duplicate number
+			if (i > 0 && nums[i] == nums[i - 1])
+				continue;
 
-						while (low < high && nums[low] == nums[low + 1])
-							low++;
+			int low = i + 1, high = nums.length - 1, sum = 0 - nums[i];
+			while (low < high) {
+				if (nums[low] + nums[high] == sum) {
+					ans.add(Arrays.asList(nums[i], nums[low], nums[high]));
 
-						while (low < high && nums[high] == nums[high - 1])
-							high--;
-
+					while (low < high && nums[low] == nums[low + 1])
 						low++;
+
+					while (low < high && nums[high] == nums[high - 1])
 						high--;
-					} else if (nums[low] + nums[high] < sum) {
-						low++;
-					} else {
-						high--;
-					}
+
+					low++;
+					high--;
+				} else if (nums[low] + nums[high] < sum) {
+					low++;
+				} else {
+					high--;
 				}
 			}
 		}
@@ -40,7 +41,6 @@ public class ThreeSum {
 	public static void main(String[] args) {
 		ThreeSum obj = new ThreeSum();
 		int[] nums = { -1, 0, 1, 2, -1, -4 };
-		// List<List<Integer>> result = obj.brutForce(nums);
 		List<List<Integer>> result = obj.threeSum(nums);
 		System.out.println(result);
 	}
