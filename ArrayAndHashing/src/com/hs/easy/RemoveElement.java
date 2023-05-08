@@ -24,7 +24,7 @@ public class RemoveElement {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 0, 1, 2, 2, 3, 0, 4, 2 };
+		int[] arr = { 0, 1, 2, 2, 3, 0, 4 };
 		RemoveElement obj = new RemoveElement();
 		obj.removeElement(arr, 2);
 		System.out.println(Arrays.toString(arr));
