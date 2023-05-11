@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class SubarraySumEqualsK {
 	public int subarraySum(int[] nums, int k) {
-		if (nums == null || nums.length == 0) 
+		if (nums == null || nums.length == 0)
 			return 0;
 
 		Map<Integer, Integer> map = new HashMap<>();
@@ -21,5 +21,13 @@ public class SubarraySumEqualsK {
 			map.put(sum, map.getOrDefault(sum, 0) + 1);
 		}
 		return count;
+	}
+
+	public static void main(String[] args) {
+		int[] nums = { 1, 2, 3 };
+		int k = 3;
+		SubarraySumEqualsK obj = new SubarraySumEqualsK();
+		int result = obj.subarraySum(nums, k);
+		System.out.println(result);
 	}
 }

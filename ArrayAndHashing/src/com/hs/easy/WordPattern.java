@@ -28,4 +28,12 @@ public class WordPattern {
 		}
 		return true;
 	}
+
+	public static void main(String[] args) {
+		String pattern = "abba";
+		String s = "dog cat cat dog";
+		WordPattern obj = new WordPattern();
+		boolean result = obj.wordPattern(pattern, s);
+		System.out.println(result);
+	}
 }

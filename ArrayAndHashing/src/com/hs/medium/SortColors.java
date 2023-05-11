@@ -1,10 +1,11 @@
 package com.hs.medium;
 
+import java.util.Arrays;
+
 public class SortColors {
 	public void sortColors(int[] nums) {
 		int left = 0, mid = 0, right = nums.length - 1;
 		while (mid <= right) {
-			System.out.println(nums[mid]);
 			if (nums[mid] == 0) {
 				swap(nums, mid++, left++);
 			} else if (nums[mid] == 1)
@@ -25,5 +26,6 @@ public class SortColors {
 		SortColors obj = new SortColors();
 		int[] arr = { 2, 0, 2, 1, 1, 0 };
 		obj.sortColors(arr);
+		System.out.println(Arrays.toString(arr));
 	}
 }

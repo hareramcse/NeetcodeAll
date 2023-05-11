@@ -11,15 +11,13 @@ public class ContinuousSubarraySum {
 		int sum = 0;
 		for (int i = 0; i < nums.length; i++) {
 			sum += nums[i];
-			if (k != 0) {
-				sum = sum % k;
-			}
-			if (map.containsKey(sum)) {
-				int currLen = i - map.get(sum);
+			int remainder = sum % k;
+			if (map.containsKey(remainder)) {
+				int currLen = i - map.get(remainder);
 				if (currLen >= 2)
 					return true;
 			} else {
-				map.put(sum, i);
+				map.put(remainder, i);
 			}
 		}
 		return false;

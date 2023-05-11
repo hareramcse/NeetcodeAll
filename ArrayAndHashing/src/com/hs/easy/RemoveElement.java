@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class RemoveElement {
 	public int removeElement(int[] nums, int val) {
-		int length = nums.length - 1;
 		int i = 0;
-		while (i <= length) {
+		int j = nums.length - 1;
+		while (i <= j) {
 			if (nums[i] == val) {
-				swap(nums, i, length);
-				length--;
+				swap(nums, i, j);
+				j--;
 			} else {
 				i++;
 			}
