@@ -8,7 +8,7 @@ public class ImplementStackUsingQueues {
 
 	public void push(int x) {
 		queue.add(x);
-		for (int i = 0; i < queue.size() - 1; i++) {
+		for (int i = 0; i < queue.size(); i++) {
 			queue.add(queue.remove());
 		}
 	}
